@@ -5,20 +5,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>recipe</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-     <style>
-        .card-img-top {
+    <style>
+        :root {
+            --ink: #20352d;
+            --herb: #315b46;
+            --paper: #f5f4ed;
+            --line: #e4e3da;
+        }
+        body {
+            min-height: 100vh;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: 'EB Garamond', Georgia, serif;
+        }
+        .site-header {
+            padding: 1.4rem 0 1.6rem;
+            background: var(--herb);
+        }
+        .site-header .display-4 {
+            margin-bottom: .15rem;
+            font-size: clamp(2.25rem, 6vw, 3.5rem);
+            letter-spacing: 0;
+        }
+        .site-header .lead {
+            color: #e5eee6 !important;
+            font-size: 1.05rem;
+        }
+        .recipe-section {
+            min-height: 64vh;
+            padding: 2.5rem 0 1rem;
+        }
+        #output2 {
+            align-items: stretch !important;
+        }
+        #output2 > .card {
+            width: min(100%, 1000px);
+            overflow: hidden;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            background: #fffefa;
+            box-shadow: 0 12px 35px rgb(32 53 45 / 9%);
+        }
+        #output2 > .card > .row {
+            min-height: 420px;
+        }
+        #output2 > .card > .row > .d-flex {
+            flex: 0 0 42%;
+            max-width: 42%;
+            padding: 0;
+            background: #e9e8de;
+        }
+        #output2 img {
             width: 100%;
-            height: 250px;
-            object-fit: contain;
+            height: 100%;
+            min-height: 420px;
+            object-fit: cover;
         }
-        .display-4{
-            font-family: EB Garamond;
+        #output2 .col-md-8 {
+            flex: 1;
+            max-width: 58%;
         }
-        .card{
-            font-family: EB Garamond; 
+        #output2 .card-body {
+            padding: clamp(1.4rem, 4vw, 2.6rem);
         }
-        .btn{
-             font-family: EB Garamond;
+        #output2 .card-title {
+            margin-bottom: 1.2rem;
+            color: var(--herb);
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            line-height: 1.05;
+        }
+        #output2 .card-text {
+            margin-bottom: .85rem;
+            font-size: 1.08rem;
+            line-height: 1.5;
+        }
+        #output2 .card-text strong {
+            color: var(--ink);
+        }
+        .back-link {
+            border-color: var(--herb) !important;
+            border-radius: 3px;
+            color: var(--herb);
+            font-family: Arial, sans-serif;
+            font-size: .78rem;
+            letter-spacing: 0;
+            text-transform: uppercase;
+        }
+        .back-link:hover {
+            background: var(--herb);
+            color: white;
+        }
+        .site-footer {
+            padding: 1.2rem 0;
+            background: var(--herb);
+            font-family: Arial, sans-serif;
+            font-size: .8rem;
+        }
+        @media (max-width: 767.98px) {
+            .recipe-section {
+                padding: 1.25rem 0 .5rem;
+            }
+            #output2 > .card > .row > .d-flex,
+            #output2 .col-md-8 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            #output2 img {
+                height: 280px;
+                min-height: 0;
+            }
         }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,16 +122,16 @@
 </head>
 <body>
     <!-- Header-->
-        <header class="bg-warning py-2">
+        <header class="site-header">
             <div class="container px-2 px-lg-2 my-2">
                 <div class="text-center text-white">
                     <h1 class="display-4 fw-bolder">Food Recipes</h1>
-                    <p class="lead text-white-50 mb-0">Al Recipes in one place</p>
+                    <p class="lead text-white-50 mb-0">All recipes in one place</p>
                 </div>
             </div>
         </header>
         <!-- Section-->
-        <section class="py-2">
+        <section class="recipe-section">
             <div class="container px-2 px-lg-2 mt-2">
                 <div id="output2" class="d-flex align-items-center justify-content-center">
                       
@@ -45,9 +140,9 @@
         </section>
         <!-- Footer-->
          <div class="d-flex align-items-center justify-content-center">
-         <a href="index.html" class="btn btn-transparent border fw-bolder m-3">Try Another Food Recipe</a>
+         <a href="index.html" class="btn btn-transparent border fw-bolder m-3 back-link">Try Another Food Recipe</a>
          </div>
-        <footer class="py-4 bg-warning">
+        <footer class="site-footer">
             <div class="container"><p class="m-0 text-center text-white fw-bolder">Copyright &copy; Your Website 2026</p></div>
         </footer>
         
